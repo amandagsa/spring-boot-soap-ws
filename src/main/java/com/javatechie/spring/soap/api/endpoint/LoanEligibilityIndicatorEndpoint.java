@@ -12,11 +12,11 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class LoanEligibilityIndicatorEndpoint {
 
-    private static final String NAMESPACE = "htp://www.javatechie.com/spring/soap/api/loanEligibility";
+    private static final String NAMESPACE = "http://www.javatechie.com/spring/soap/api/loanEligibility";
     @Autowired
     private LoanEligibilityService service;
 
-    @PayloadRoot(namespace = NAMESPACE, localPart = "")
+    @PayloadRoot(namespace = NAMESPACE, localPart = "CustomerRequest")
     @ResponsePayload
     public Acknowledgement getLoanStatus(@RequestPayload CustomerRequest request) {
         return service.checkLoanEligibility(request);
